@@ -23,7 +23,7 @@ import java.sql.PreparedStatement;
 
 public class Gui {
 	
-		protected Shell shell;//Shell of the main GUI in Final Project
+		protected Shell shell;
 		private Group LectureGroupView,ClassGroupView,CourseGroupView,ClassGroup,CourseGroup,LectureGroup;
 		private Button ShowFullSchedule,ClassGroupChooseInsert,ClassGroupChooseUpdate,ClassGroupChooseDelete,ClassGroupExecuteButton,
 		FindLectures,PairClassCourse,PairCourseLecture,CourseGroupChooseDelete,CourseGroupChooseUpdate,
