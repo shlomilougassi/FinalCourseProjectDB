@@ -596,15 +596,15 @@ public class Gui {
 
 				  if (LectureGroupAddPhonetextbox.getText().equals("")) 
 				  {
-					  LectureGroupAddPhonetextbox.setText("INVALID NUMBER");;
-					  LectureGroupAddPhonetextbox.setBackground(SWTResourceManager.getColor(SWT.COLOR_RED));
+					  LectureGroupResultText.setText("INVALID NUMBER");;
+					  LectureGroupResultText.setBackground(SWTResourceManager.getColor(SWT.COLOR_RED));
 				  }
 				  try 
 				  {   
 					  String query = "INSERT INTO lecturephone VALUES ("+LectureGroupIDText.getText()+","+LectureGroupAddPhonetextbox.getText()+");" ;
 					  Connection2DB.Instance().Exectuequery(query);
-					  LectureGroupAddPhonetextbox.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
-					  LectureGroupAddPhonetextbox.setText("Action Complete.");
+					  LectureGroupResultText.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+					  LectureGroupResultText.setText("Action Complete.");
 				  }
 				  catch (Exception e1) {
 					  LectureGroupResultText.setBackground(SWTResourceManager.getColor(SWT.COLOR_RED));

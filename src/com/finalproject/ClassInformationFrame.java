@@ -7,6 +7,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Label;
 
 public class ClassInformationFrame{
 
@@ -28,12 +29,19 @@ public class ClassInformationFrame{
 
 
 
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	protected void createContents() {
 		shell = new Shell();
 		shell.setSize(620, 499);	
-		shell.setText("Class infomation Lecture Courses");
+		shell.setText("Class infomation");
 		list = new List(shell, SWT.BORDER);
-		list.setBounds(10, 10, 580, 440);
+		list.setBounds(10, 59, 580, 391);
+		
+		Label ClassInfoLabel = new Label(shell, SWT.NONE);
+		ClassInfoLabel.setBounds(10, 10, 580, 43);
+		ClassInfoLabel.setText("In this window we can see all the classes and the information about the lectures \rand the courses in each class.");
 		
 		try {
 				sch = Connection2DB.Instance().getClassInformation();
@@ -47,5 +55,4 @@ public class ClassInformationFrame{
 			}
 			
 	}
-
 }

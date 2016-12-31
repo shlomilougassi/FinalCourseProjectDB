@@ -420,7 +420,7 @@ public class Connection2DB {
 			connection=DriverManager.getConnection(protocol,USER,PASS);
 			connection.setAutoCommit(false);
 		    statement = connection.createStatement();
-		    String sql= "SELECT teaching.Lecture_ID, course.*,takeplace.Class_ClassNumber FROM course JOIN teaching ON course.CourseNumber=teaching.Course_CourseNumber JOIN takeplace ON course.CourseNumber=takeplace.Course_CourseNumber;";
+		    String sql= "SELECT S.Lecture_ID, T.*,Q.Class_ClassNumber FROM course AS T JOIN teaching AS S ON T.CourseNumber=S.Course_CourseNumber JOIN takeplace AS Q ON T.CourseNumber=Q.Course_CourseNumber;";
 		    ResultSet rs = statement.executeQuery(sql);
 		    ArrayList<lectureCourseClassQuery> lectureCourseClasslist = new ArrayList<lectureCourseClassQuery>();
 		    while(rs.next())

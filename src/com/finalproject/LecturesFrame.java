@@ -11,6 +11,7 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.widgets.Label;
 
 public class LecturesFrame {
 
@@ -50,7 +51,7 @@ public class LecturesFrame {
 		
 		Group StartGroup = new Group(shell, SWT.NONE);
 		StartGroup.setText("Start");
-		StartGroup.setBounds(10, 7, 674, 47);
+		StartGroup.setBounds(20, 60, 272, 47);
 		
 		CLabel StartGroupDayLable = new CLabel(StartGroup, SWT.NONE);
 		StartGroupDayLable.setBounds(10, 16, 37, 21);
@@ -75,7 +76,7 @@ public class LecturesFrame {
 		
 		Group EndGroup = new Group(shell, SWT.NONE);
 		EndGroup.setText("End");
-		EndGroup.setBounds(10, 64, 674, 47);
+		EndGroup.setBounds(353, 60, 272, 47);
 		
 		CLabel EndGroupDayLable = new CLabel(EndGroup, SWT.NONE);
 		EndGroupDayLable.setText("Day");
@@ -120,5 +121,9 @@ public class LecturesFrame {
 		});
 		btnNewButton.setBounds(10, 117, 75, 25);
 		btnNewButton.setText("Execute");
+		
+		Label FindLectureLabel = new Label(shell, SWT.NONE);
+		FindLectureLabel.setBounds(20, 10, 664, 47);
+		FindLectureLabel.setText("In this window you can choose a time period and you will get the list of the \rlecture that teach in this period.");
 	}
 }

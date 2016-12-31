@@ -7,6 +7,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Label;
 
 public class lectureCourseClassFrame {
 
@@ -29,13 +30,20 @@ public class lectureCourseClassFrame {
 		}
 	}
 
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	protected void createContents() {
 		shell = new Shell();
-		shell.setSize(720, 499);
+		shell.setSize(883, 499);
 		shell.setText("Lecture Course Class List");
 		
 		list = new List(shell, SWT.BORDER);
-		list.setBounds(10, 10, 680, 440);
+		list.setBounds(10, 42, 848, 408);
+		
+		Label LecctureCourseListLabel = new Label(shell, SWT.NONE);
+		LecctureCourseListLabel.setBounds(10, 10, 892, 26);
+		LecctureCourseListLabel.setText("In this window you can see each Lecture and the courses he teaches, the classes and the time. ");
 		
 		
 		
@@ -51,6 +59,4 @@ public class lectureCourseClassFrame {
 			}
 			
 	}
-
-
 }
