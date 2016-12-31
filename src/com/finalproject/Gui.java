@@ -43,6 +43,8 @@ public class Gui {
 		private Button ClassInformaiton;
 		private Button LectureClassCourseList;
 		private static Text PairResultText;
+		private Button LectureGroupAddPhoneButton;
+		private Text LectureGroupAddPhonetextbox;
 		
 		public static void main(String[] args) throws SQLException
 		{
@@ -282,6 +284,12 @@ public class Gui {
 			LectureGroupAdressNameLable.setText("Adress Name");
 			LectureGroupAdressNameLable.setAlignment(SWT.CENTER);
 			LectureGroupAdressNameLable.setBounds(236, 88, 97, 21);
+			LectureGroupAddPhoneButton = new Button(LectureGroup, SWT.NONE);
+			LectureGroupAddPhoneButton.setText("Add Phone Number");
+			LectureGroupAddPhoneButton.setBounds(826, 34, 143, 25);
+			
+			LectureGroupAddPhonetextbox = new Text(LectureGroup, SWT.BORDER);
+			LectureGroupAddPhonetextbox.setBounds(826, 88, 143, 21);
 			PairClassCourse = new Button(shell, SWT.NONE);
 			PairCourseLecture = new Button(shell, SWT.NONE);
 			PairCourseLecture.setText("Pair Course Lecture");
@@ -573,7 +581,7 @@ public class Gui {
 						LectureGroupResultText.setText(e1.getMessage());
 						return;
 					}
-					catch (ParseException e1) {
+					catch (Exception e1) {
 						LectureGroupResultText.setBackground(SWTResourceManager.getColor(SWT.COLOR_RED));
 						LectureGroupResultText.setText(e1.getMessage());
 						return;
@@ -581,6 +589,32 @@ public class Gui {
 				}
 			});
 
+			LectureGroupAddPhoneButton.addSelectionListener(new SelectionAdapter() {
+				@Override
+				public void widgetSelected(SelectionEvent e)
+				{
+
+				  if (LectureGroupAddPhonetextbox.getText().equals("")) 
+				  {
+					  LectureGroupAddPhonetextbox.setText("INVALID NUMBER");;
+					  LectureGroupAddPhonetextbox.setBackground(SWTResourceManager.getColor(SWT.COLOR_RED));
+				  }
+				  try 
+				  {   
+					  String query = "INSERT INTO lecturephone VALUES ("+LectureGroupIDText.getText()+","+LectureGroupAddPhonetextbox.getText()+");" ;
+					  Connection2DB.Instance().Exectuequery(query);
+					  LectureGroupAddPhonetextbox.setBackground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
+					  LectureGroupAddPhonetextbox.setText("Action Complete.");
+				  }
+				  catch (Exception e1) {
+					  LectureGroupResultText.setBackground(SWTResourceManager.getColor(SWT.COLOR_RED));
+					  LectureGroupResultText.setText(e1.getMessage());
+					  return;
+				  }
+				}
+			});
+			
+			
 /******************************Paring section*****************************/
 			//Pair Class Lecture
 			PairCourseLecture.addSelectionListener(new SelectionAdapter() {
